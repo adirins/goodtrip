@@ -1,7 +1,18 @@
 <script setup lang="ts">
-import {ref} from "vue";
+import {ref, watch} from "vue";
+import { useWeatherStore } from "@/stores/weather.ts";
+import { useRoute, useRouter } from "vue-router";
 
-const units = ref("metric")
+const weatherStore = useWeatherStore()
+const route = useRoute()
+const router = useRouter()
+
+watch(()=> weatherStore.units,()=>{
+  router.push({
+    name: route.name,
+    query: {... route.query, units: weatherStore.units}
+  })
+})
 </script>
 
 <template>
@@ -16,7 +27,7 @@ const units = ref("metric")
           class="min-w-[300px] flex-1"
           label="Units"
           :options="['metric','standard', 'imperial']"
-          v-model="units"
+          v-model="weatherStore.units"
         />
       </div>
     </div>
