@@ -40,5 +40,9 @@ watch(()=> weatherStore.units,()=>{
       </div>
     </div>
 
+    <BaseModalDialog :is-open="isModalOpen" @close="isModalOpen=!isModalOpen">
+      <WeatherCard/>
+    </BaseModalDialog>
+
   </div>
 </template>
