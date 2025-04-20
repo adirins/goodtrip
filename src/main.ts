@@ -3,6 +3,8 @@ import './assets/main.css'
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 
+import BaseSelect from '@/components/base/BaseSelect.vue'
+
 import App from './App.vue'
 import router from './router'
 
@@ -19,5 +21,6 @@ app.use(createPinia())
 app.use(router)
 
 app.component('font-awesome-icon', FontAwesomeIcon)
+app.component("BaseSelect", BaseSelect)
 
 app.mount('#app')

@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import {ref} from "vue";
+
+const units = ref("metric")
 </script>
 
 <template>
@@ -9,7 +12,12 @@
       <div class="flex flex-wrap gap-10 w-full">
         Select city
 
-        Select units
+        <BaseSelect
+          class="min-w-[300px] flex-1"
+          label="Units"
+          :options="['metric','standard', 'imperial']"
+          v-model="units"
+        />
       </div>
     </div>
 
