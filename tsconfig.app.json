@@ -9,6 +9,6 @@
       "@/*": ["./src/*"]
     },
 
-    "types": ["@headlessui/vue"]
+    "types": ["@headlessui/vue", "axios"]
   }
 }

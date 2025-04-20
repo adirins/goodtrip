@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {onMounted, ref, watch} from "vue";
+import {onMounted, watch} from "vue";
 import { useWeatherStore } from "@/stores/weather.ts";
 import { useRoute, useRouter } from "vue-router";
 
@@ -11,6 +11,8 @@ onMounted(() => {
   if( route.query.units ) {
     weatherStore.units = route.query.units
   }
+
+  weatherStore.getCurrentWeather({lat: 33.44, lon: -94.04})
 })
 
 watch(()=> weatherStore.units,()=>{

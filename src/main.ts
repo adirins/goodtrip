@@ -15,7 +15,7 @@ import { far } from "@fortawesome/free-regular-svg-icons";
 
 library.add(fas, far);
 
-export const app = createApp(App)
+export const app :App<element> = createApp(App)
 
 app.use(createPinia())
 app.use(router)
