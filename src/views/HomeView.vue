@@ -1,11 +1,17 @@
 <script setup lang="ts">
-import {ref, watch} from "vue";
+import {onMounted, ref, watch} from "vue";
 import { useWeatherStore } from "@/stores/weather.ts";
 import { useRoute, useRouter } from "vue-router";
 
 const weatherStore = useWeatherStore()
 const route = useRoute()
 const router = useRouter()
+
+onMounted(() => {
+  if( route.query.units ) {
+    weatherStore.units = route.query.units
+  }
+})
 
 watch(()=> weatherStore.units,()=>{
   router.push({
