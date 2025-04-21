@@ -1,12 +1,14 @@
 <script setup lang="ts">
-import { useWeatherStore } from "@/stores/weather.ts";
-import {useCityStore} from "@/stores/city.ts";
-import {computed} from "vue";
+import { useWeatherStore } from "@/stores/weather";
+import { useCityStore } from "@/stores/city";
+import { computed } from "vue";
 
 const weatherStore = useWeatherStore()
 const cityStore = useCityStore()
 
 const getWeekdayAndDate = computed(()=>{
+  if(!weatherStore.currentWeather || !weatherStore.currentWeather?.current?.dt || weatherStore.currentWeather?.timezone_offset) return "no date"
+
   const date = new Date((weatherStore.currentWeather.current.dt + weatherStore.currentWeather.timezone_offset) * 1000);
 
   const weekday = date.toLocaleDateString('en-US', { weekday: 'long' });
@@ -40,7 +42,7 @@ const getTemperatureSymbol = computed(()=>{
     </div>
 
     <div class="text-center">
-      {{cityStore.selectedCity.name}}, {{cityStore.selectedCity.country}}
+      {{cityStore.selectedCity?.name}}, {{cityStore.selectedCity?.country}}
     </div>
 
     <div class="text-center">

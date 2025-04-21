@@ -1,13 +1,13 @@
 import { defineStore } from "pinia";
 import axios from "axios";
-import { app } from "@/main.ts";
+import { app } from "@/main";
 import type { OneCallWeather, WeatherState, WeatherRequestOptions } from "@/types/weatherTypes.ts";
+import type { APIResponse } from "@/types/responseTypes";
 
 const API_KEY = "5796abbde9106b7da4febfae8c44c232";
 const BASE_URL = "https://api.openweathermap.org/data/2.5";
 
 export const useWeatherStore = defineStore("weatherStore", {
-  id: "weatherStore",
   state: (): WeatherState => ({
     weatherLoading: false,
     currentWeather: null,
@@ -30,8 +30,8 @@ export const useWeatherStore = defineStore("weatherStore", {
 
       return new Promise((resolve, reject) => {
         axios
-          .get<OneCallWeather>(`${BASE_URL}/onecall`, { params })
-          .then((response) => {
+          .get(`${BASE_URL}/onecall`, { params })
+          .then((response: APIResponse<OneCallWeather>) => {
             this.currentWeather = response.data;
 
             app.config.globalProperties.$router.push({
@@ -45,7 +45,7 @@ export const useWeatherStore = defineStore("weatherStore", {
 
             resolve(response.data);
           })
-          .catch((error) => {
+          .catch((error: Error) => {
             const unitsTmp = app.config.globalProperties.$route.query.units
 
             app.config.globalProperties.$router.push({
@@ -54,7 +54,7 @@ export const useWeatherStore = defineStore("weatherStore", {
             })
 
             this.error = axios.isAxiosError(error)
-              ? error.response?.data?.message || error.message
+              ? error.message
               : "Weather could not be fetched.";
 
             console.error("Current weather fetch error:", error);

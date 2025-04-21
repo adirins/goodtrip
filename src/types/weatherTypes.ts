@@ -2,7 +2,9 @@ export interface OneCallWeather {
   lat: number;
   lon: number;
   timezone: string;
+  timezone_offset: number;
   current: {
+    dt: number;
     temp: number;
     feels_like: number;
     humidity: number;
@@ -58,6 +60,6 @@ export interface WeatherState {
 }
 
 export interface WeatherRequestOptions {
-  lat: string;
-  lon: string;
+  lat: string | number;
+  lon: string | number;
 }

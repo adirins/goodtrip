@@ -1,10 +1,10 @@
 import './assets/main.css'
-import { createApp } from 'vue'
+import { createApp, type App } from 'vue'
 import { createPinia } from 'pinia'
-import BaseSelect from '@/components/base/BaseSelect.vue'
+import BaseSelect from '@/components/Base/BaseSelect.vue'
 import BaseModalDialog from "@/components/Base/BaseModalDialog.vue";
-import BaseComboboxAutocomplete from '@/components/base/BaseComboboxAutocomplete.vue'
-import App from './App.vue'
+import BaseComboboxAutocomplete from '@/components/Base/BaseComboboxAutocomplete.vue'
+import AppRoot  from './App.vue'
 import router from './router'
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -13,7 +13,7 @@ import { far } from "@fortawesome/free-regular-svg-icons";
 
 library.add(fas, far);
 
-export const app :App<element> = createApp(App)
+export const app :App<Element> = createApp(AppRoot)
 
 app.use(createPinia())
 app.use(router)

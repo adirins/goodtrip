@@ -1,6 +1,7 @@
 import { defineStore } from "pinia";
 import axios from  "axios";
 import type { CityListParams, CityStoreState, Location } from "@/types/cityTypes.ts";
+import type { APIResponse } from "@/types/responseTypes";
 
 const API_KEY = "5796abbde9106b7da4febfae8c44c232";
 const BASE_URL = "https://api.openweathermap.org/geo/1.0";
@@ -38,13 +39,13 @@ export const useCityStore = defineStore("cityStore", {
             params,
             signal: controller.signal,
           })
-          .then((response: Location) => {
-              this.cityList = response.data;
+          .then((response: APIResponse<Location[]> ) => {
+              this.cityList = response.data ;
               resolve(response.data);
           })
           .catch((error: Error) => {
             this.error = axios.isAxiosError(error)
-              ? error.response?.data?.message || error.message
+              ? error.message
               : "City could not be fetched.";
 
             console.error("City list fetch error:", error);
@@ -73,10 +74,10 @@ export const useCityStore = defineStore("cityStore", {
           .get(`${BASE_URL}/reverse`, {
             params,
           })
-          .then((response: Location) => {
+          .then((response: APIResponse<Location[]>) => {
             if(response.data.length) {
               this.selectedCity = response.data[0]
-              resolve(response.data);
+              resolve(response.data[0]);
             } else {
               this.selectedCity = null
 
@@ -87,7 +88,7 @@ export const useCityStore = defineStore("cityStore", {
           .catch((error: Error) => {
 
             this.error = axios.isAxiosError(error)
-              ? error.response?.data?.message || error.message
+              ? error.message
               : "City could not be fetched.";
 
             console.error("City list fetch error:", error);

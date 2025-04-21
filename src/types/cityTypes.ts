@@ -3,12 +3,12 @@ export interface LocalNames {
 }
 
 export interface Location {
-  name: string;
-  local_names: LocalNames;
-  country: string;
-  lat: number;
-  lon: number;
-  state: string;
+  name?: string;
+  local_names?: LocalNames;
+  country?: string;
+  lat?: number;
+  lon?: number;
+  state?: string;
 }
 
 export interface CityStoreState {

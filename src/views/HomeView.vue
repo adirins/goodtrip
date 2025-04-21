@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import {computed, onMounted, type Ref, ref, type UnwrapRef, watch} from "vue";
-import { useWeatherStore } from "@/stores/weather.ts";
+import { useWeatherStore } from "@/stores/weather";
 import { useRoute, useRouter } from "vue-router";
 import WeatherCard from "@/components/HomeView/WeatherCard.vue";
-import { useCityStore } from "@/stores/city.ts";
-import type { OneCallWeather } from "@/types/weatherTypes.ts";
+import { useCityStore } from "@/stores/city";
+import type { OneCallWeather, Units } from "@/types/weatherTypes.ts";
 import type { Location } from "@/types/cityTypes.ts";
 
 const weatherStore = useWeatherStore()
@@ -13,29 +13,32 @@ const route = useRoute()
 const router = useRouter()
 
 onMounted(() => {
-  if( route.query.units ) {
-    weatherStore.units = route.query.units
+  const units = route.query.units;
+
+  if (typeof units === 'string') {
+    if (['metric', 'imperial', 'standard'].includes(units)) {
+      weatherStore.units = units as Units;
+    }
+  } else {
+    router.push({
+      name: route.name,
+      query: { ...route.query, units: weatherStore.units}
+    })
   }
 
-  if(route.query.lat && route.query.lon) {
-    cityStore.getReverseCity({lat: route.query.lat, lon: route.query.lon})
-      .then((resp: Promise<Location>) => {
+  const lat = route.query.lat;
+  const lon = route.query.lon;
+
+  if (typeof lat === 'string' && typeof lon === 'string') {
+    cityStore.getReverseCity({ lat, lon })
+      .then((resp: Location) => {
         if(resp) {
-          checkWeather({lat: route.query.lat, lon: route.query.lon})
+          checkWeather({lat, lon})
         }
-      }).catch((err: Error) => { console.error("City fetch error", err); })
+      })
+      .catch((err: Error) => { console.error("City fetch error", err) })
   }
 })
-
-const isModalOpen = ref(false)
-
-const checkWeather = ({lat, lon}) => {
-  weatherStore.getCurrentWeather({lat, lon}).then((resp: Promise<OneCallWeather>)=>{
-    if(resp) {
-      isModalOpen.value = true
-    }
-  })
-}
 
 const selectedCity = computed({
   get() {
@@ -44,9 +47,7 @@ const selectedCity = computed({
   set(evt) {
     cityStore.selectedCity = evt
 
-    if(evt) {
-      checkWeather({ lat: evt.lat, lon: evt.lon})
-    }
+    fetchWeather()
   }
 })
 
@@ -72,6 +73,23 @@ watch(()=> weatherStore.units,()=>{
     query: {... route.query, units: weatherStore.units}
   })
 })
+
+const isModalOpen = ref(false)
+
+const checkWeather = ({lat, lon}: { lat: string | number; lon: string | number }) => {
+  weatherStore.getCurrentWeather({lat, lon}).then((resp: OneCallWeather)=>{
+    if(resp) {
+      isModalOpen.value = true
+    }
+  })
+}
+
+const fetchWeather = () => {
+  const { lat, lon } = cityStore.selectedCity || {};
+  if (lat !== undefined && lon !== undefined) {
+    checkWeather({ lat, lon });
+  }
+}
 </script>
 
 <template>
@@ -111,9 +129,9 @@ watch(()=> weatherStore.units,()=>{
 
       <div v-else-if="!isModalOpen && selectedCity">
         <button
-          type="button"
-          @click="checkWeather({ lat: cityStore.selectedCity.lat, lon: cityStore.selectedCity.lon})"
           class="rounded-md bg-black/20 px-4 py-2 text-sm font-medium text-white hover:bg-black/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75"
+          type="button"
+          @click="fetchWeather()"
         >
           Re-fetch weather
         </button>
