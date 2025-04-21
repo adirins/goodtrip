@@ -71,7 +71,7 @@ const queryTmp = computed({
 const displayValue = ()=>{
   if(!props.modelValue) return ""
 
-  return Object.keys(props.modelValue)
+  return Object.keys(props.modelValue).length
     ?     props.modelValue.name + ', ' + props.modelValue.country + ', ' + props.modelValue.state
     :      ""
 }

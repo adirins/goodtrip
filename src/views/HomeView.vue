@@ -23,9 +23,7 @@ onMounted(() => {
         if(resp) {
           checkWeather({lat: route.query.lat, lon: route.query.lon})
         }
-      }).catch((err: any) =>{
-      console.log(1, err)
-    })
+      }).catch((err: any) => { console.error("City fetch error"); })
   }
 })
 
@@ -41,7 +39,7 @@ const checkWeather = ({lat, lon}) => {
 
 const selectedCity = computed({
   get() {
-    return cityStore.selectedCity ?? {}
+    return cityStore.selectedCity || {}
   },
   set(evt) {
     cityStore.selectedCity = evt
@@ -53,7 +51,7 @@ const selectedCity = computed({
 })
 
 const cityListTmp = computed(()=>{
-  return cityStore.cityList
+  return cityStore.cityList || []
 })
 
 const cityQuery: Ref<UnwrapRef<string>, UnwrapRef<string> | string> = ref("")
