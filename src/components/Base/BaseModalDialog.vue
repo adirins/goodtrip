@@ -48,6 +48,8 @@ defineProps({
               class="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all"
             >
               <slot></slot>
+
+              <button @click="$emit('close')" class="opacity-0">Close</button>
             </DialogPanel>
           </TransitionChild>
         </div>

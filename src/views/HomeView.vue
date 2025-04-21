@@ -18,12 +18,12 @@ onMounted(() => {
   if (typeof units === 'string') {
     if (['metric', 'imperial', 'standard'].includes(units)) {
       weatherStore.units = units as Units;
+    } else {
+      router.push({
+        name: route.name,
+        query: {...route.query, units: weatherStore.units}
+      })
     }
-  } else {
-    router.push({
-      name: route.name,
-      query: { ...route.query, units: weatherStore.units}
-    })
   }
 
   const lat = route.query.lat;
@@ -119,11 +119,11 @@ const fetchWeather = () => {
     </div>
 
     <div class="w-full max-w-[1024px] xl:max-w-[1536] xl:min-w-[1025px] grid justify-center">
-      <div v-if="cityStore.error">
+      <div v-if="cityStore.error" class="text-red-500">
         {{ cityStore.error }}
       </div>
 
-      <div v-else-if="weatherStore.error">
+      <div v-else-if="weatherStore.error" class="text-red-500">
         {{ weatherStore.error }}
       </div>
 
