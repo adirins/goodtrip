@@ -23,7 +23,7 @@ onMounted(() => {
         if(resp) {
           checkWeather({lat: route.query.lat, lon: route.query.lon})
         }
-      }).catch((err: any) => { console.error("City fetch error"); })
+      }).catch((err: Error) => { console.error("City fetch error", err); })
   }
 })
 
