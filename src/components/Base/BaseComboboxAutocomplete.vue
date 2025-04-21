@@ -21,7 +21,7 @@ const props = defineProps({
   modelValue: {
     type: Object as PropType<Option | null>,
     required: false,
-    default: "",
+    default: () => {},
   },
   label: {
     type: String,
@@ -69,7 +69,11 @@ const queryTmp = computed({
 
 
 const displayValue = ()=>{
-  return Object.keys(props.modelValue).length  ? props.modelValue.name + ', ' + props.modelValue.country + ', ' + props.modelValue.state :  ""
+  if(!props.modelValue) return ""
+
+  return Object.keys(props.modelValue)
+    ?     props.modelValue.name + ', ' + props.modelValue.country + ', ' + props.modelValue.state
+    :      ""
 }
 
 </script>
