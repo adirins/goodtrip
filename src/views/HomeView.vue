@@ -136,13 +136,10 @@ const fetchWeather = () => {
           Re-fetch weather
         </button>
       </div>
-
-
     </div>
 
     <BaseModalDialog v-if="isModalOpen" :is-open="isModalOpen" @close="isModalOpen=!isModalOpen">
       <WeatherCard/>
     </BaseModalDialog>
-
   </div>
 </template>
