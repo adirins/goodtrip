@@ -1,5 +1,3 @@
-// src/types/weather.ts
-
 export interface OneCallWeather {
   lat: number;
   lon: number;

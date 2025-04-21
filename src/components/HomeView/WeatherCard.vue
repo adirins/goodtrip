@@ -6,7 +6,7 @@ const weatherStore = useWeatherStore()
 </script>
 
 <template>
-  <div v-if="weatherStore.currentWeather" class="grid gap-2.5">
+  <div class="grid gap-2.5">
     <div class="flex gap-1 justify-center">
       icon
     </div>

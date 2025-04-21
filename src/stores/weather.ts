@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 import axios from "axios";
 import { app } from "@/main.ts";
-import { OneCallWeather, WeatherState, WeatherRequestOptions} from "@/types/weatherTypes.ts";
+import type { OneCallWeather, WeatherState, WeatherRequestOptions } from "@/types/weatherTypes.ts";
 
 const API_KEY = "5796abbde9106b7da4febfae8c44c232";
 const BASE_URL = "https://api.openweathermap.org/data/2.5";
