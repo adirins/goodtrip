@@ -23,6 +23,8 @@ onMounted(() => {
         if(resp) {
           checkWeather({lat: route.query.lat, lon: route.query.lon})
         }
+      }).catch((err: any) =>{
+      console.log(1, err)
     })
   }
 })
@@ -51,7 +53,7 @@ const selectedCity = computed({
 })
 
 const cityListTmp = computed(()=>{
-  return cityStore.cityList ?? []
+  return cityStore.cityList
 })
 
 const cityQuery: Ref<UnwrapRef<string>, UnwrapRef<string> | string> = ref("")
@@ -75,7 +77,7 @@ watch(()=> weatherStore.units,()=>{
 </script>
 
 <template>
-  <div class="h-full w-full relative flex justify-center">
+  <div class="h-full w-full relative grid gap-10 justify-center">
     <div class="w-full max-w-[1024px] xl:max-w-[1536] xl:min-w-[1025px] bg-gray-200 rounded shadow-xl grid gap-2.5 p-5 m-5">
       <h1 class="text-xl font-medium text-gray-700">Weather app</h1>
 
@@ -98,6 +100,28 @@ watch(()=> weatherStore.units,()=>{
           v-model="weatherStore.units"
         />
       </div>
+    </div>
+
+    <div class="w-full max-w-[1024px] xl:max-w-[1536] xl:min-w-[1025px] grid justify-center">
+      <div v-if="cityStore.error">
+        {{ cityStore.error }}
+      </div>
+
+      <div v-else-if="weatherStore.error">
+        {{ weatherStore.error }}
+      </div>
+
+      <div v-else-if="!isModalOpen && selectedCity">
+        <button
+          type="button"
+          @click="checkWeather({ lat: cityStore.selectedCity.lat, lon: cityStore.selectedCity.lon})"
+          class="rounded-md bg-black/20 px-4 py-2 text-sm font-medium text-white hover:bg-black/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75"
+        >
+          Re-fetch weather
+        </button>
+      </div>
+
+
     </div>
 
     <BaseModalDialog v-if="isModalOpen" :is-open="isModalOpen" @close="isModalOpen=!isModalOpen">

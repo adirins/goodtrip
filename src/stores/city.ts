@@ -42,7 +42,7 @@ export const useCityStore = defineStore("cityStore", {
               this.cityList = response.data;
               resolve(response.data);
           })
-          .catch((error) => {
+          .catch((error: any) => {
             this.error = axios.isAxiosError(error)
               ? error.response?.data?.message || error.message
               : "City could not be fetched.";
@@ -74,12 +74,17 @@ export const useCityStore = defineStore("cityStore", {
             params,
           })
           .then((response: Location) => {
+            if(response.data.length) {
               this.selectedCity = response.data[0]
-
               resolve(response.data);
+            } else {
+              this.selectedCity = null
 
+              this.error = "City could not be found."
+              reject(response.data)
+            }
           })
-          .catch((error) => {
+          .catch((error: any) => {
 
             this.error = axios.isAxiosError(error)
               ? error.response?.data?.message || error.message
