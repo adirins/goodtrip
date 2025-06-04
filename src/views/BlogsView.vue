@@ -15,7 +15,7 @@
           <p class="text-gray-700 mt-3">{{ post.content }}</p>
           <RouterLink
             :to="`/blogs/${post.id}`"
-            class="inline-block mt-4 text-orange-500 hover:underline font-medium"
+            class="inline-block mt-4 text-green-500 hover:underline font-medium"
           >
             Lasīt vairāk
           </RouterLink>

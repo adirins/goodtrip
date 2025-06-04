@@ -19,16 +19,16 @@ const toggleMenu = () => {
 
         <!-- Navigācijas izvēlne -->
         <div class="hidden md:flex gap-6 text-gray-700">
-          <RouterLink to="/par-mums" class="hover:text-orange-500 transition">Par mums</RouterLink>
-          <RouterLink to="/celojumi" class="hover:text-orange-500 transition">Ceļojumi</RouterLink>
-          <RouterLink to="/blogs" class="hover:text-orange-500 transition">Blogs</RouterLink>
-          <RouterLink to="/kontakti" class="hover:text-orange-500 transition">Kontakti</RouterLink>
+          <RouterLink to="/par-mums" class="hover:text-green-500 transition">Par mums</RouterLink>
+          <RouterLink to="/celojumi" class="hover:text-green-500 transition">Ceļojumi</RouterLink>
+          <RouterLink to="/blogs" class="hover:text-green-500 transition">Blogs</RouterLink>
+          <RouterLink to="/kontakti" class="hover:text-green-500 transition">Kontakti</RouterLink>
         </div>
 
         <!-- CTA poga -->
         <RouterLink
           to="/pieteiksanas"
-          class="ml-4 px-4 py-2 rounded-xl bg-orange-500 text-white hover:bg-orange-600 transition hidden md:block"
+          class="ml-4 px-4 py-2 rounded-xl bg-green-500 text-white hover:bg-green-600 transition hidden md:block"
         >
           Pieteikties
         </RouterLink>
@@ -42,13 +42,13 @@ const toggleMenu = () => {
 
     <!-- Mobilā izvēlne dropdown -->
     <div v-if="menuOpen" class="md:hidden bg-white px-4 pb-4 space-y-2 border-t">
-      <RouterLink to="/par-mums" class="block text-gray-700 hover:text-orange-500">Par mums</RouterLink>
-      <RouterLink to="/celojumi" class="block text-gray-700 hover:text-orange-500">Ceļojumi</RouterLink>
-      <RouterLink to="/blogs" class="block text-gray-700 hover:text-orange-500">Blogs</RouterLink>
-      <RouterLink to="/kontakti" class="block text-gray-700 hover:text-orange-500">Kontakti</RouterLink>
+      <RouterLink to="/par-mums" class="block text-gray-700 hover:text-green-500">Par mums</RouterLink>
+      <RouterLink to="/celojumi" class="block text-gray-700 hover:text-green-500">Ceļojumi</RouterLink>
+      <RouterLink to="/blogs" class="block text-gray-700 hover:text-green-500">Blogs</RouterLink>
+      <RouterLink to="/kontakti" class="block text-gray-700 hover:text-green-500">Kontakti</RouterLink>
       <RouterLink
         to="/pieteiksanas"
-        class="block text-center mt-2 px-4 py-2 rounded-xl bg-orange-500 text-white hover:bg-orange-600"
+        class="block text-center mt-2 px-4 py-2 rounded-xl bg-green-500 text-white hover:bg-green-600"
       >
         Pieteikties
       </RouterLink>

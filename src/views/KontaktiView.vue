@@ -4,7 +4,7 @@
     <div class="bg-white rounded-2xl shadow-md p-8 space-y-6">
       <div>
         <h2 class="text-2xl font-semibold mb-2">E-pasts</h2>
-        <a href="mailto:info@goodtrip.lv" class="text-orange-500 hover:underline">
+        <a href="mailto:info@goodtrip.lv" class="text-green-500 hover:underline">
           info@goodtrip.lv
         </a>
       </div>
@@ -15,7 +15,7 @@
           href="https://www.instagram.com/goodtrip.lv"
           target="_blank"
           rel="noopener noreferrer"
-          class="text-orange-500 hover:underline"
+          class="text-green-500 hover:underline"
         >
           @goodtrip.lv
         </a>
@@ -27,7 +27,7 @@
           href="https://wa.me/37112345678"
           target="_blank"
           rel="noopener noreferrer"
-          class="text-orange-500 hover:underline"
+          class="text-green-500 hover:underline"
         >
           +371 12 345 678
         </a>

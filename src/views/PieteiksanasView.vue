@@ -31,7 +31,7 @@
 
       <button
         type="submit"
-        class="w-full bg-orange-500 text-white py-3 rounded hover:bg-orange-600 transition"
+        class="w-full bg-green-500 text-white py-3 rounded hover:bg-green-600 transition"
         :disabled="isSubmitting"
       >
         {{ isSubmitting ? 'Ienākšana...' : 'Ienākt' }}

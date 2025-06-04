@@ -15,7 +15,7 @@
 
       <router-link
         to="/pieteiksanas"
-        class="inline-block px-6 py-3 rounded-xl bg-orange-500 text-white hover:bg-orange-600 transition"
+        class="inline-block px-6 py-3 rounded-xl bg-green-500 text-white hover:bg-green-600 transition"
       >
         Pieteikties braucienam
       </router-link>

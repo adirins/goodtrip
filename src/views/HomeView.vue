@@ -12,7 +12,7 @@
       <div class="w-full flex justify-center">
         <RouterLink
           to="/celojumi"
-          class="px-6 py-3 rounded-xl bg-orange-500 text-white hover:bg-orange-600 transition text-lg w-fit
+          class="px-6 py-3 rounded-xl bg-green-500 text-white hover:bg-green-600 transition text-lg w-fit
   "
         >
           Skatīt braucienus
@@ -48,7 +48,7 @@
 
           <RouterLink
             :to="`/celojumi/${trip.id}`"
-            class="inline-block mt-4 text-orange-500 hover:underline font-medium"
+            class="inline-block mt-4 text-green-500 hover:underline font-medium"
           >
             Vairāk
           </RouterLink>
