@@ -20,7 +20,7 @@ const toggleMenu = () => {
         <!-- Navigācijas izvēlne -->
         <div class="hidden md:flex gap-6 text-gray-700">
           <RouterLink to="/par-mums" class="hover:text-orange-500 transition">Par mums</RouterLink>
-          <RouterLink to="/celjojumi" class="hover:text-orange-500 transition">Ceļojumi</RouterLink>
+          <RouterLink to="/celojumi" class="hover:text-orange-500 transition">Ceļojumi</RouterLink>
           <RouterLink to="/blogs" class="hover:text-orange-500 transition">Blogs</RouterLink>
           <RouterLink to="/kontakti" class="hover:text-orange-500 transition">Kontakti</RouterLink>
         </div>
@@ -43,7 +43,7 @@ const toggleMenu = () => {
     <!-- Mobilā izvēlne dropdown -->
     <div v-if="menuOpen" class="md:hidden bg-white px-4 pb-4 space-y-2 border-t">
       <RouterLink to="/par-mums" class="block text-gray-700 hover:text-orange-500">Par mums</RouterLink>
-      <RouterLink to="/celjojumi" class="block text-gray-700 hover:text-orange-500">Ceļojumi</RouterLink>
+      <RouterLink to="/celojumi" class="block text-gray-700 hover:text-orange-500">Ceļojumi</RouterLink>
       <RouterLink to="/blogs" class="block text-gray-700 hover:text-orange-500">Blogs</RouterLink>
       <RouterLink to="/kontakti" class="block text-gray-700 hover:text-orange-500">Kontakti</RouterLink>
       <RouterLink

@@ -15,7 +15,7 @@
         <ul class="space-y-2 text-blue-200">
           <li><RouterLink to="/" class="hover:underline">Sākums</RouterLink></li>
           <li><RouterLink to="/par-mums" class="hover:underline">Par mums</RouterLink></li>
-          <li><RouterLink to="/celjojumi" class="hover:underline">Ceļojumi</RouterLink></li>
+          <li><RouterLink to="/celojumi" class="hover:underline">Ceļojumi</RouterLink></li>
           <li><RouterLink to="/blogs" class="hover:underline">Blogs un padomi</RouterLink></li>
           <li><RouterLink to="/kontakti" class="hover:underline">Kontakti</RouterLink></li>
         </ul>

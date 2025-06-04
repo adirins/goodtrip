@@ -24,12 +24,12 @@ const router = createRouter({
       component: ParMumsView,
     },
     {
-      path: '/celjojumi',
-      name: 'celjojumi',
+      path: '/celojumi',
+      name: 'celojumi',
       component: CelojumiView,
     },
     {
-      path: '/celjojumi/:id',
+      path: '/celojumi/:id',
       name: 'TripDetails',
       component: TripDetails,
     },

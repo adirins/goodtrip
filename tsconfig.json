@@ -1,8 +1,5 @@
 {
   "compilerOptions": {
-    "target": "ESNext",                  // Modern JS features
-    "module": "ESNext",                  // ES modules support
-    "moduleResolution": "Bundler",       // Bundler-friendly resolution
     "strict": true,                      // Enable strict type checking
     "declaration": true,                 // Generate `.d.ts` declaration files
     "composite": true,                   // Enable project references (if using incremental builds)
@@ -10,6 +7,11 @@
     "emitDeclarationOnly": false,         // Only emit `.d.ts` files
     "esModuleInterop": true,             // Allow for seamless interop with CommonJS modules
     "skipLibCheck": true,                // Skip type checking of library files
+    "moduleResolution": "nodenext",
+    "module": "esnext",
+    "target": "esnext",
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
     "paths": {
       "@/*": ["./src/*"]                   // Path alias for src folder
     },
