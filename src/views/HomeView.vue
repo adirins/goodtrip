@@ -1,6 +1,6 @@
 <template>
   <section class="bg-blue-50 text-gray-800">
-    <div class="max-w-7xl mx-auto px-6 py-20 text-center">
+    <div class="max-w-7xl mx-auto px-6 py-20 text-center grid gap-6 justify-center">
       <h1 class="text-4xl md:text-5xl font-bold text-blue-700 mb-6">
         Piedzīvojumi, kas paliek atmiņā
       </h1>
@@ -9,7 +9,8 @@
       </p>
       <RouterLink
         to="/celjojumi"
-        class="inline-block px-6 py-3 rounded-xl bg-orange-500 text-white hover:bg-orange-600 transition text-lg"
+        class="px-6 py-3 rounded-xl bg-orange-500 text-white hover:bg-orange-600 transition text-lg w-fit mx-auto
+"
       >
         Skatīt braucienus
       </RouterLink>

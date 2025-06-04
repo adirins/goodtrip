@@ -7,7 +7,8 @@ import BlogsView from "@/views/BlogsView.vue";
 import BlogPostView from "@/views/BlogPostView.vue";
 import KontaktiView from "@/views/KontaktiView.vue";
 import PieteiksanasView from "@/views/PieteiksanasView.vue";
-import TripDetails from "@/views/TripDetails.vue"; // 👈 404 lapas komponente
+import TripDetails from "@/views/TripDetails.vue";
+import PrivacyPolicy from "@/views/PrivacyPolicy.vue"; // 👈 404 lapas komponente
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -51,6 +52,11 @@ const router = createRouter({
       path: '/pieteiksanas',
       name: 'pieteiksanas',
       component: PieteiksanasView,
+    },
+    {
+      path: '/privatuma-politika',
+      name: 'privacyPolicy',
+      component: PrivacyPolicy,
     },
     {
       path: '/:pathMatch(.*)*',

@@ -18,7 +18,7 @@ const toggleMenu = () => {
         </RouterLink>
 
         <!-- Navigācijas izvēlne -->
-        <div class="hidden md:flex space-x-6 text-gray-700">
+        <div class="hidden md:flex gap-6 text-gray-700">
           <RouterLink to="/par-mums" class="hover:text-orange-500 transition">Par mums</RouterLink>
           <RouterLink to="/celjojumi" class="hover:text-orange-500 transition">Ceļojumi</RouterLink>
           <RouterLink to="/blogs" class="hover:text-orange-500 transition">Blogs</RouterLink>

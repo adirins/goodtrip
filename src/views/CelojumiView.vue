@@ -1,8 +1,10 @@
 <template>
-  <section class="max-w-7xl mx-auto px-6 py-16">
-    <h1 class="text-4xl font-bold text-blue-800 mb-8 text-center">Pieejamie ceļojumi</h1>
+  <section class="max-w-7xl mx-auto px-6 py-16 grid gap-6">
+    <h1 class="text-4xl font-bold text-blue-800  text-center">
+      Pieejamie ceļojumi
+    </h1>
 
-    <div class="mb-6 flex justify-center space-x-4">
+    <div class="mb-6 flex gap-4 justify-center">
       <!-- Vienkāršs filtrs pēc sezonas -->
       <button
         @click="filterSeason('visi')"
