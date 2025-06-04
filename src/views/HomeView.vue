@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-blue-50 text-gray-800">
+  <section class="bg-blue-50 text-gray-800 flex justify-center">
     <div class="max-w-7xl mx-auto px-6 py-20 text-center grid gap-6 justify-center">
       <h1 class="text-4xl md:text-5xl font-bold text-blue-700 mb-6">
         Piedzīvojumi, kas paliek atmiņā
@@ -9,22 +9,23 @@
         Pievienojies neformāliem pārgājieniem un atklāj Eiropas takas kopā ar citiem līdzbraucējiem!
       </p>
 
-      <RouterLink
-        to="/celojumi"
-        class="px-6 py-3 rounded-xl bg-orange-500 text-white hover:bg-orange-600 transition text-lg w-fit mx-auto
-"
-      >
-        Skatīt braucienus
-      </RouterLink>
+      <div class="w-full flex justify-center">
+        <RouterLink
+          to="/celojumi"
+          class="px-6 py-3 rounded-xl bg-orange-500 text-white hover:bg-orange-600 transition text-lg w-fit
+  "
+        >
+          Skatīt braucienus
+        </RouterLink>
+      </div>
     </div>
   </section>
 
-  <section class="max-w-7xl mx-auto px-6 py-16">
+  <section class="max-w-7xl mx-auto px-6 py-16 grid justify-center">
     <h2 class="text-3xl font-semibold text-gray-900 mb-8 text-center">
       Aktuālie ceļojumi
     </h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mx-auto">
       <div
         v-for="trip in trips"
         :key="trip.id"
@@ -56,7 +57,7 @@
     </div>
   </section>
 
-  <section class="bg-white py-20 border-t">
+  <section class="bg-white py-20 border-t flex justify-center">
     <div class="max-w-4xl mx-auto text-center px-6">
       <h2 class="text-3xl font-bold text-gray-900 mb-4">
         Kas ir GoodTrip.lv?

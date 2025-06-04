@@ -57,33 +57,10 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
+import {useTripsStore} from "@/stores/trips.js";
 
-const trips = [
-  {
-    id: '1',
-    title: 'Portugāles piekraste',
-    dates: '2025. gada marts',
-    description: 'Dabas takas, okeāns un brīvības sajūta gar Rota Vicentina maršrutu.',
-    image: 'https://picsum.photos/seed/portugal/600/400',
-    season: 'pavasaris',
-  },
-  {
-    id: '2',
-    title: 'Alpu pārgājiens',
-    dates: '2025. gada jūlijs',
-    description: 'Augstkalnu piedzīvojums Šveices un Itālijas Alpos ar ainavām kā no pastkartes.',
-    image: 'https://picsum.photos/seed/alps/600/400',
-    season: 'vasara',
-  },
-  {
-    id: '3',
-    title: 'Balkānu treks',
-    dates: '2025. gada septembris',
-    description: 'Mazāk zināmas takas un kalni Albānijā un Melnkalnē.',
-    image: 'https://picsum.photos/seed/balkans/600/400',
-    season: 'rudens',
-  },
-]
+const tripsStore = useTripsStore()
+const trips = tripsStore.trips
 
 const filter = ref('visi')
 

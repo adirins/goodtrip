@@ -4,7 +4,7 @@
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <article
-        v-for="post in blogPosts"
+        v-for="post in posts"
         :key="post.id"
         class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition"
       >
@@ -12,7 +12,7 @@
         <div class="p-4">
           <h2 class="text-xl font-semibold text-blue-700">{{ post.title }}</h2>
           <p class="text-sm text-gray-600 mt-1">{{ post.date }}</p>
-          <p class="text-gray-700 mt-3">{{ post.excerpt }}</p>
+          <p class="text-gray-700 mt-3">{{ post.description }}</p>
           <RouterLink
             :to="`/blogs/${post.id}`"
             class="inline-block mt-4 text-orange-500 hover:underline font-medium"
@@ -26,29 +26,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { useBlogStore } from '@/stores/blogs.js'
 
-const blogPosts = ref([
-  {
-    id: '1',
-    title: 'Kā sagatavoties pārgājienam',
-    date: '2025-03-10',
-    excerpt: 'Padomi ekipējuma izvēlē, pārtikas plānošanā un drošības pasākumos...',
-    image: 'https://picsum.photos/seed/hiking/600/400',
-  },
-  {
-    id: '2',
-    title: 'Labākās takas Portugālē',
-    date: '2025-02-25',
-    excerpt: 'Iepazīsti skaistākās dabas takas un jūras piekraste no Alentežo līdz Algarve...',
-    image: 'https://picsum.photos/seed/portugaltrail/600/400',
-  },
-  {
-    id: '3',
-    title: 'Ko ņemt līdzi kalnos vasarā',
-    date: '2025-01-15',
-    excerpt: 'Praktiski ieteikumi inventāram un apģērbam, lai pārgājiens būtu ērts un drošs...',
-    image: 'https://picsum.photos/seed/summermountains/600/400',
-  },
-])
+const blogStore = useBlogStore()
+const posts = blogStore.allPosts
 </script>
