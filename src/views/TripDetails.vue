@@ -5,7 +5,7 @@
       <h1 class="text-4xl font-bold text-blue-700 mb-4">{{ trip.title }}</h1>
       <img :src="trip.image" :alt="trip.title" class="w-full h-64 object-cover rounded-lg mb-6" />
       <p class="text-gray-700 mb-4">{{ trip.description }}</p>
-      <p class="text-sm text-gray-500 mb-6">Datumi: {{ trip.dates }}</p>
+      <p class="text-sm text-gray-500 mb-6">Datumi: {{ trip.date }}</p>
 
       <!-- Piemēram, papildu informācija -->
       <h2 class="text-2xl font-semibold mb-3">Maršruts un programma</h2>

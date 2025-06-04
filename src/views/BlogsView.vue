@@ -12,7 +12,7 @@
         <div class="p-4">
           <h2 class="text-xl font-semibold text-blue-700">{{ post.title }}</h2>
           <p class="text-sm text-gray-600 mt-1">{{ post.date }}</p>
-          <p class="text-gray-700 mt-3">{{ post.description }}</p>
+          <p class="text-gray-700 mt-3">{{ post.content }}</p>
           <RouterLink
             :to="`/blogs/${post.id}`"
             class="inline-block mt-4 text-orange-500 hover:underline font-medium"

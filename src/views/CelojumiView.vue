@@ -41,7 +41,7 @@
         <img :src="trip.image" :alt="trip.title" class="w-full h-48 object-cover" />
         <div class="p-4">
           <h2 class="text-xl font-semibold text-blue-700">{{ trip.title }}</h2>
-          <p class="text-sm text-gray-600 mt-1">{{ trip.dates }}</p>
+          <p class="text-sm text-gray-600 mt-1">{{ trip.date }}</p>
           <p class="text-gray-700 mt-3">{{ trip.description }}</p>
           <RouterLink
             :to="`/pieteiksanas/${trip.id}`"

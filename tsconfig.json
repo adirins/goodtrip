@@ -1,29 +1,47 @@
 {
   "compilerOptions": {
-    "strict": true,                      // Enable strict type checking
-    "declaration": true,                 // Generate `.d.ts` declaration files
-    "composite": true,                   // Enable project references (if using incremental builds)
-    "noEmit": true,                     // Allow emitting files
-    "emitDeclarationOnly": false,         // Only emit `.d.ts` files
-    "esModuleInterop": true,             // Allow for seamless interop with CommonJS modules
-    "skipLibCheck": true,                // Skip type checking of library files
-    "moduleResolution": "nodenext",
-    "module": "esnext",
-    "target": "esnext",
-    "allowSyntheticDefaultImports": true,
-    "resolveJsonModule": true,
+    "target": "ESNext",
+    // Modern JS features
+    "module": "ESNext",
+    // ES modules support
+    "moduleResolution": "Bundler",
+    // Bundler-friendly resolution
+    "strict": true,
+    // Enable strict type checking
+    "declaration": true,
+    // Generate `.d.ts` declaration files
+    "composite": true,
+    // Enable project references (if using incremental builds)
+    "noEmit": true,
+    // Allow emitting files
+    "emitDeclarationOnly": false,
+    // Only emit `.d.ts` files
+    "esModuleInterop": true,
+    // Allow for seamless interop with CommonJS modules
+    "skipLibCheck": true,
+    // Skip type checking of library files
     "paths": {
-      "@/*": ["./src/*"]                   // Path alias for src folder
+      "@/*": [
+        "./src/*"
+      ]
+      // Path alias for src folder
     },
-    "types": ["@headlessui/vue", "axios", "node"], // Add Vue and Node.js types
-    "allowImportingTsExtensions": false,
+    "types": [
+      "@headlessui/vue",
+      "axios",
+      "node"
+    ],
+    // Add Vue and Node.js types
+    "allowImportingTsExtensions": false
   },
   "include": [
-    "src/**/*",                          // Include all the app and type files
+    "src/**/*",
+    // Include all the app and type files
     "src/**/*.vue",
     "env.d.ts"
   ],
   "exclude": [
-    "src/**/__tests__/*"                  // Exclude test files if needed
+    "src/**/__tests__/*"
+    // Exclude test files if needed
   ]
 }

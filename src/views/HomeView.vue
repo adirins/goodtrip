@@ -39,7 +39,7 @@
           </h3>
 
           <p class="text-sm text-gray-600 mt-1">
-            {{ trip.dates }}
+            {{ trip.date }}
           </p>
 
           <p class="text-gray-700 mt-3">
