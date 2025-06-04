@@ -14,7 +14,7 @@ const toggleMenu = () => {
       <div class="flex justify-between h-16 items-center">
         <!-- Logo -->
         <RouterLink to="/" class="text-xl font-semibold text-blue-600 hover:text-blue-800">
-          GoodTrip.lv
+          <img src="@/assets/g_icon.png" alt="icon" class="w-8 h-8" />
         </RouterLink>
 
         <!-- Navigācijas izvēlne -->

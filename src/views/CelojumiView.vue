@@ -30,6 +30,12 @@
       >
         Rudens
       </button>
+      <button
+        @click="filterSeason('ziema')"
+        :class="filter === 'ziema' ? activeBtnClass : btnClass"
+      >
+        Ziema
+      </button>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
