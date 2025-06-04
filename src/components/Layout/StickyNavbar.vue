@@ -42,11 +42,11 @@ const toggleMenu = () => {
 
     <!-- Mobilā izvēlne dropdown -->
     <div v-if="menuOpen" class="md:hidden bg-white px-4 pb-4 space-y-2 border-t">
-      <RouterLink to="/par-mums" class="block text-gray-700 hover:text-green-500">Par mums</RouterLink>
-      <RouterLink to="/celojumi" class="block text-gray-700 hover:text-green-500">Ceļojumi</RouterLink>
-      <RouterLink to="/blogs" class="block text-gray-700 hover:text-green-500">Blogs</RouterLink>
-      <RouterLink to="/kontakti" class="block text-gray-700 hover:text-green-500">Kontakti</RouterLink>
-      <RouterLink
+      <RouterLink @click="menuOpen=!menuOpen" to="/par-mums" class="block text-gray-700 hover:text-green-500">Par mums</RouterLink>
+      <RouterLink @click="menuOpen=!menuOpen" to="/celojumi" class="block text-gray-700 hover:text-green-500">Ceļojumi</RouterLink>
+      <RouterLink @click="menuOpen=!menuOpen" to="/blogs" class="block text-gray-700 hover:text-green-500">Blogs</RouterLink>
+      <RouterLink @click="menuOpen=!menuOpen" to="/kontakti" class="block text-gray-700 hover:text-green-500">Kontakti</RouterLink>
+      <RouterLink @click="menuOpen=!menuOpen"
         to="/pieteiksanas"
         class="block text-center mt-2 px-4 py-2 rounded-xl bg-green-500 text-white hover:bg-green-600"
       >
